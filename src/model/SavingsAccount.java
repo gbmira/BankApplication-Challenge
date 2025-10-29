@@ -13,11 +13,16 @@ public class SavingsAccount extends Account{
 		
 	}
 
-	@Override
 	public void withdraw(Double amount) {
-		// TODO Auto-generated method stub
+		if(amount < 0) throw new IllegalArgumentException("invalid withdraw");
 		
-	}
+		if (amount < getAccountBalance() && amount < getTransferLimit()) {
+			setAccountBalance(getAccountBalance() - amount);
+			addTransaction(new Transaction("SAQUE", amount, this, null));
+		} else {
+			throw new IllegalArgumentException("Insufficient funds");
+		}
 	
 	
+}
 }

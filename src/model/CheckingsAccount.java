@@ -20,6 +20,8 @@ public class CheckingsAccount extends Account{
 		if (amount < getAccountBalance() && amount < getTransferLimit()) {
 			setAccountBalance(getAccountBalance() - amount);
 			addTransaction(new Transaction("SAQUE", amount, this, null));
+		} else {
+			throw new IllegalArgumentException("Insufficient funds");
 		}
 		
 	}
