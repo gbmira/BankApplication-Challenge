@@ -45,6 +45,14 @@ public abstract class Account {
 		this.consumer = consumer;
 	}
 
+	public List<Transaction> getTransactions() {
+		return transactions;
+	}
+
+	public void setTransactions(List<Transaction> transactions) {
+		this.transactions = transactions;
+	}
+
 	public Double getAccountBalance() {
 		return accountBalance;
 	}
@@ -72,7 +80,7 @@ public abstract class Account {
 			System.out.println("Invalid deposit!");
 			return;
 		}
-		
+
 		accountBalance += amount;
 		transactions.add(new Transaction("DEPOSITO", amount, this, null));
 	}
