@@ -60,8 +60,15 @@ public class Transaction {
 
 	@Override
 	public String toString() {
-		return "Transaction [timestamp=" + timestamp + ", type=" + type + ", amount=" + amount + ", source=" + source
-				+ ", destination=" + destination + "]";
+	    return "\n--- Transaction ---" +
+	           "\nTimestamp: " + timestamp +
+	           "\nType: " + type +
+	           "\nAmount: " + amount +
+	           "\nSource Account: " + 
+	           (source != null ? source.getAccountNumber() : "N/A") +
+	           "\nDestination Account: " + 
+	           (destination != null ? destination.getAccountNumber() : "N/A") +
+	           "\n-------------------";
 	}
 
 }

@@ -5,14 +5,14 @@ import java.util.List;
 
 public abstract class Account {
 
-	private Integer accountNumber;
-	private Integer agencyNumber;
-	private Costumer consumer;
+	private String accountNumber;
+	private String agencyNumber;
+	private Customer consumer;
 	private Double accountBalance;
 	private Double transferLimit;
 	private List<Transaction> transactions = new ArrayList<Transaction>();
 
-	public Account(Integer accountNumber, Integer agencyNumber, Costumer consumer, Double accountBalance,
+	public Account(String accountNumber, String agencyNumber, Customer consumer, Double accountBalance,
 			Double transferLimit) {
 		this.accountNumber = accountNumber;
 		this.agencyNumber = agencyNumber;
@@ -21,27 +21,27 @@ public abstract class Account {
 		this.transferLimit = transferLimit;
 	}
 
-	public Integer getAccountNumber() {
+	public String getAccountNumber() {
 		return accountNumber;
 	}
 
-	public void setAccountNumber(Integer accountNumber) {
+	public void setAccountNumber(String accountNumber) {
 		this.accountNumber = accountNumber;
 	}
 
-	public Integer getAgencyNumber() {
+	public String getAgencyNumber() {
 		return agencyNumber;
 	}
 
-	public void setAgencyNumber(Integer agencyNumber) {
+	public void setAgencyNumber(String agencyNumber) {
 		this.agencyNumber = agencyNumber;
 	}
 
-	public Costumer getConsumer() {
+	public Customer getConsumer() {
 		return consumer;
 	}
 
-	public void setConsumer(Costumer consumer) {
+	public void setConsumer(Customer consumer) {
 		this.consumer = consumer;
 	}
 
@@ -71,8 +71,11 @@ public abstract class Account {
 
 	@Override
 	public String toString() {
-		return "BankAccount [accountNumber=" + accountNumber + ", agencyNumber=" + agencyNumber + ", consumer="
-				+ consumer + ", accountBalance=" + accountBalance + ", transferLimit=" + transferLimit + "]";
+	    return "Account Number: " + accountNumber + "\n" +
+	           "Agency Number: " + agencyNumber + "\n" +
+	           "Customer: " + consumer + "\n" +
+	           "Account Balance: " + accountBalance + "\n" +
+	           "Transfer Limit: " + transferLimit + "\n";
 	}
 
 	public void deposit(Double amount) {
@@ -81,8 +84,8 @@ public abstract class Account {
 			return;
 		}
 
-		accountBalance += amount;
-		transactions.add(new Transaction("DEPOSITO", amount, this, null));
+		this.accountBalance += amount;
+		addTransaction(new Transaction("DEPOSITO", amount, this, null));
 	}
 
 	public abstract void withdraw(Double amount);

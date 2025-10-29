@@ -1,23 +1,18 @@
 package model;
 
-public class Costumer {
+public class Customer {
 	
-	private int id;
 	private String name;
+	private String cpf;
+	
 	private Account bankAccount;
 	
 	
-	public Costumer(int id, String name) {
-		this.id = id;
+	public Customer(String name, String cpf) {
 		this.name = name;
+		this.cpf = cpf;	
 	}
 	
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
 	public String getName() {
 		return name;
 	}
@@ -33,8 +28,10 @@ public class Costumer {
 
 	@Override
 	public String toString() {
-		return "Consumer [id=" + id + ", name=" + name + ", bankAccount=" + bankAccount + "]";
+		return "Customer [name= " + name + "\n" +
+				"cpf = " + cpf + "]";
 	}
+
 	
 	
 	

@@ -2,15 +2,9 @@ package model;
 
 public class CheckingsAccount extends Account{
 
-	public CheckingsAccount(Integer accountNumber, Integer agencyNumber, Costumer consumer, Double accountBalance,
+	public CheckingsAccount(String accountNumber, String agencyNumber, Customer consumer, Double accountBalance,
 			Double transferLimit) {
 		super(accountNumber, agencyNumber, consumer, accountBalance, transferLimit);
-	}
-
-	@Override
-	public void deposit(Double amount) {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
@@ -21,10 +15,9 @@ public class CheckingsAccount extends Account{
 			setAccountBalance(getAccountBalance() - amount);
 			addTransaction(new Transaction("SAQUE", amount, this, null));
 		} else {
-			throw new IllegalArgumentException("Insufficient funds");
+			System.out.println("Insufficient funds or Limit exceeded, try again with another value.");
 		}
-		
-	}
 
 	
+}
 }
