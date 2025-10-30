@@ -60,7 +60,7 @@ A aplicação roda via **terminal** e permite as seguintes operações:
 
 ## 🧩 Tipos de Conta
 
-| Tipo de Conta | Limite de Crédito | Juros | Origem dos Depósitos | Transferências | Tarifa |
+| Tipo de Conta | Limite | Origem dos Depósitos | Transferências | Tarifa | Rendimento |
 |----------------|------------------|--------|----------------------|----------------|---------|
-| **Corrente** | Sim | Não | Qualquer | Livre | Pode ter |
-| **Poupança** | Não | Sim (0,5%/mês) | Qualquer | Pode ter | Não |
+| **Corrente** | Sim | Qualquer | Sim | Sim | Não |
+| **Poupança** | Sim | Qualquer | Sim | Não | Sim |
