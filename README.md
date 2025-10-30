@@ -51,7 +51,7 @@ A aplicação roda via **terminal** e permite as seguintes operações:
   - Agência, titular, saldo inicial, limite e tipo de conta (corrente, poupança ou salário)
 - 💰 Depósito
 - 💸 Saque
-- 🔄 Transferência entre contas
+- 🔄 Transferência entre contas (Em desenvolvimento)
 - ⚙️ Alteração de limite
 - 🕐 Limite de transferência por horário (ex: restrição após 22h)
 - 📁 Exportação de histórico de transações em **CSV**
