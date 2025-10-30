@@ -64,3 +64,94 @@ A aplicação roda via **terminal** e permite as seguintes operações:
 |----------------|------------------|--------|----------------------|----------------|---------|
 | **Corrente** | Sim | Qualquer | Sim | Sim | Não |
 | **Poupança** | Sim | Qualquer | Sim | Não | Sim |
+
+---
+
+## 📊 Diagrama de Classes
+
+```mermaid
+classDiagram
+    class Main {
+        +main(String[] args)
+    }
+
+    class Menu {
+        +run()
+        -createAccount()
+        -seeAccounts()
+        -deposit()
+        -withdraw()
+        -changeLimit()
+        -exportTransactions()
+        -findAccount(): Account
+    }
+
+    class Account {
+        <<abstract>>
+        -String accountNumber
+        -String agencyNumber
+        -Customer consumer
+        -Double accountBalance
+        -Double transferLimit
+        -List~Transaction~ transactions
+        +deposit(Double)
+        +withdraw(Double)  <<abstract>>
+        +addTransaction(Transaction)
+        +getTransactions(): List~Transaction~
+        +setTransferLimit(Double)
+        +getAccountBalance(): Double
+    }
+
+    class SavingsAccount {
+        +deposit(Double)
+        +withdraw(Double)
+    }
+
+    class CheckingsAccount {
+        +withdraw(Double)
+    }
+
+    class Customer {
+        -String name
+        -String cpf
+    }
+
+    class Transaction {
+        -LocalDateTime timestamp
+        -TransactionType type
+        -Double amount
+        -Account source
+        -Account destination
+    }
+
+    class TransactionType {
+        <<enumeration>>
+        +DEPOSIT
+        +WITHDRAW
+        +TRANSFER
+    }
+
+    class BankService {
+        +deposit(Account, Double)
+        +withDraw(Account, Double)
+        +transfer(Account, Account, Double)
+        +changeLimit(Account, Double)
+        +getTransactions(Account): List~Transaction~
+    }
+
+    class CSVExporter {
+        +export(List~Transaction~, String path)
+    }
+
+    Main --> Menu
+    Menu --> Account
+    Menu --> BankService
+    Menu --> CSVExporter
+    Account <|-- SavingsAccount
+    Account <|-- CheckingsAccount
+    Account --> Customer
+    Account --> Transaction : "0..*"
+    Transaction --> TransactionType
+    BankService --> Account
+    BankService --> Transaction
+
