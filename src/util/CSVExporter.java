@@ -19,6 +19,7 @@ public class CSVExporter {
 						t.getSource() != null ? t.getSource().getAccountNumber() : "-",
 						t.getDestination() != null ? t.getDestination().getAccountNumber() : "-");
 			}
+			System.out.println();
 			System.out.println("CSV exported!");
 		} catch (Exception e) {
 			e.printStackTrace();

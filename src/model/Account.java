@@ -85,7 +85,7 @@ public abstract class Account {
 		}
 
 		this.accountBalance += amount;
-		addTransaction(new Transaction("DEPOSITO", amount, this, null));
+		addTransaction(new Transaction(TransactionType.DEPOSIT, amount, this, null));
 	}
 
 	public abstract void withdraw(Double amount);

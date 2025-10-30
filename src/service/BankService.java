@@ -4,6 +4,7 @@ import java.util.List;
 
 import model.Account;
 import model.Transaction;
+import model.TransactionType;
 
 public class BankService {
 	
@@ -19,7 +20,7 @@ public class BankService {
 		from.withdraw(amount);
 		to.deposit(amount);
 		
-		Transaction t = new Transaction("TRANSFERENCIA", amount, from, to);
+		Transaction t = new Transaction(TransactionType.TRANSFER, amount, from, to);
 		from.addTransaction(t);
 		to.addTransaction(t);
 	}

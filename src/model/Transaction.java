@@ -5,12 +5,12 @@ import java.time.LocalDateTime;
 public class Transaction {
 
 	private LocalDateTime timestamp;
-	private String type;
+	private TransactionType type;
 	private Double amount;
 	private Account source;
 	private Account destination;
 
-	public Transaction(String type, Double amount, Account source, Account destination) {
+	public Transaction(TransactionType type, Double amount, Account source, Account destination) {
 		this.timestamp = LocalDateTime.now();
 		this.type = type;
 		this.amount = amount;
@@ -26,11 +26,11 @@ public class Transaction {
 		this.timestamp = timestamp;
 	}
 
-	public String getType() {
+	public TransactionType getType() {
 		return type;
 	}
 
-	public void setType(String type) {
+	public void setType(TransactionType type) {
 		this.type = type;
 	}
 

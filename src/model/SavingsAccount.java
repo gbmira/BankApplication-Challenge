@@ -19,7 +19,7 @@ public class SavingsAccount extends Account{
 		
 		if (amount < getAccountBalance() && amount < getTransferLimit()) {
 			setAccountBalance(getAccountBalance() - amount);
-			addTransaction(new Transaction("SAQUE", amount, this, null));
+			addTransaction(new Transaction(TransactionType.WITHDRAW, amount, this, null));
 		} else {
 			System.out.println("Insufficient funds or Limit exceeded, try again with another value.");
 		}
