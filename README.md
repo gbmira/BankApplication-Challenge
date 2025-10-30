@@ -48,7 +48,7 @@ A aplicação roda via **terminal** e permite as seguintes operações:
 
 - ✅ Cadastro de conta bancária  
   - Número da conta (gerado automaticamente com 4 dígitos)  
-  - Agência, titular, saldo inicial, limite e tipo de conta (corrente, poupança ou salário)
+  - Agência, titular, saldo inicial, limite e tipo de conta (corrente ou Poupança)
 - 💰 Depósito
 - 💸 Saque
 - 🔄 Transferência entre contas (Em desenvolvimento)
